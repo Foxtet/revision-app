@@ -1,7 +1,12 @@
 from flask import Flask, jsonify
 
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 app = Flask(__name__)
+
+
+@app.get("/stats")
+def stats():
+    return jsonify(routes=4, version=__version__, uptime="ok")
 
 
 @app.get("/")
